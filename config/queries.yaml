@@ -13,6 +13,11 @@
 # Europe PMC normalisiert "beta" NICHT zu "β" (getestet: "SC-beta cells" 34
 # Treffer, "SC-β cells" 210 Treffer, praktisch keine Ueberschneidung). Jede
 # Anfrage mit "beta" bekommt deshalb eine "β"-Variante per OR dazu.
+#
+# Gross-/Kleinschreibung ist Europe PMC dagegen egal ("Nkx6-1" = "NKX6-1",
+# exakt gleicher hitCount). Bindestrich vs. Punkt macht aber einen grossen
+# Unterschied ("NKX6-1" 122 Treffer, "NKX6.1" 386 Treffer) -- deshalb per OR
+# beide Schreibweisen, ohne separate Gross-/Kleinschreibungs-Variante.
 
 queries:
   - name: ipsc_beta_diff
@@ -33,7 +38,7 @@ queries:
 
   - name: pancreatic_endoderm_nkx61
     label: "pancreatic endoderm differentiation NKX6-1"
-    query: '"pancreatic endoderm" AND "NKX6-1"'
+    query: '"pancreatic endoderm" AND ("NKX6-1" OR "NKX6.1")'
 
   - name: insulin_producing_protocol
     label: "insulin producing cells differentiation protocol"
