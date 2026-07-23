@@ -9,19 +9,23 @@
 # Anfuehrungszeichen und werden mit AND verknuepft. Wer eine Anfrage anpasst:
 # einzelne Fachbegriffe in Anfuehrungszeichen setzen, mehrere Begriffe mit
 # AND/OR verbinden -- nicht einfach Woerter aneinanderreihen.
+#
+# Europe PMC normalisiert "beta" NICHT zu "β" (getestet: "SC-beta cells" 34
+# Treffer, "SC-β cells" 210 Treffer, praktisch keine Ueberschneidung). Jede
+# Anfrage mit "beta" bekommt deshalb eine "β"-Variante per OR dazu.
 
 queries:
   - name: ipsc_beta_diff
     label: "iPSC beta cell differentiation"
-    query: '"iPSC" AND "beta cell differentiation"'
+    query: '"iPSC" AND ("beta cell differentiation" OR "β cell differentiation")'
 
   - name: hesc_beta_diff
     label: "hESC beta cell differentiation"
-    query: '"hESC" AND "beta cell differentiation"'
+    query: '"hESC" AND ("beta cell differentiation" OR "β cell differentiation")'
 
   - name: sc_beta_cells
     label: "SC-beta cells"
-    query: '"SC-beta cells"'
+    query: '"SC-beta cells" OR "SC-β cells"'
 
   - name: stem_cell_islets
     label: "stem cell derived islets"
