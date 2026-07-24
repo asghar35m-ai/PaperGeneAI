@@ -18,15 +18,22 @@
 # exakt gleicher hitCount). Bindestrich vs. Punkt macht aber einen grossen
 # Unterschied ("NKX6-1" 122 Treffer, "NKX6.1" 386 Treffer) -- deshalb per OR
 # beide Schreibweisen, ohne separate Gross-/Kleinschreibungs-Variante.
+#
+# Singular/Plural wird ebenfalls nicht automatisch mitgefunden ("hESC" 330
+# Treffer, "hESCs" separat nochmal mehr -- Rezania et al. 2014 z.B. schreiben
+# nur "hESCs" und wurde dadurch verpasst). iPSC/iPSCs und hESC/hESCs deshalb
+# beide per OR. "differentiation protocol" bewusst NICHT weiter gelockert:
+# ein Test mit blossem "differentiation" brachte 4222 statt 526 Treffer
+# (fast das 8-Fache) und damit zu viel Rauschen.
 
 queries:
   - name: ipsc_beta_diff
     label: "iPSC beta cell differentiation"
-    query: '"iPSC" AND ("beta cell differentiation" OR "β cell differentiation")'
+    query: '("iPSC" OR "iPSCs") AND ("beta cell differentiation" OR "β cell differentiation")'
 
   - name: hesc_beta_diff
     label: "hESC beta cell differentiation"
-    query: '"hESC" AND ("beta cell differentiation" OR "β cell differentiation")'
+    query: '("hESC" OR "hESCs") AND ("beta cell differentiation" OR "β cell differentiation")'
 
   - name: sc_beta_cells
     label: "SC-beta cells"
