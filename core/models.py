@@ -22,6 +22,9 @@ class EntityType(str, enum.Enum):
     CELLTYPE = "celltype"
     PATHWAY = "pathway"
     FACTOR = "factor"  # Wachstumsfaktor / kleines Molekuel in Protokollen
+    CHEMICAL = "chemical"  # PubTator3-Chemical-Annotationen (MESH-ID)
+    CELL_LINE = "cell_line"  # PubTator3-CellLine-Annotationen (Cellosaurus), keine Cell-Ontology-Zelltypen
+    SPECIES = "species"  # PubTator3-Species-Annotationen (NCBI-Taxonomy-ID)
 
 
 class MentionSource(str, enum.Enum):
@@ -66,6 +69,8 @@ class Entity(Base):
     canonical_id: Mapped[str] = mapped_column(index=True)
     symbol: Mapped[str | None] = mapped_column(index=True)
     name: Mapped[str | None]
+    ensembl_id: Mapped[str | None]  # nur fuer type=GENE, via mygene.info
+    uniprot_id: Mapped[str | None]  # nur fuer type=GENE, via mygene.info
 
     __table_args__ = (UniqueConstraint("type", "canonical_id"),)
 
