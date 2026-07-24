@@ -1,0 +1,13 @@
+# PMIDs, die unabhaengig von der Suchstrategie (config/queries.yaml) immer
+# ins Korpus geholt werden -- z.B. bekannte Referenzpapiere zum Pilotpfad, die
+# durch keine noch so gute Anfrage zuverlaessig gefunden werden (z.B. weil
+# Titel/Abstract die gesuchten Begriffe gar nicht enthalten).
+#
+# "label" ist nur zur Anzeige/Wiedererkennung.
+
+pmids:
+  - pmid: "25211370"
+    label: "Rezania 2014"
+
+  - pmid: "32341565"
+    label: "Mahaddalkar 2020"
